@@ -1,0 +1,298 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AHB_GATE_OFFSET_SPI0	sunxi_spi_spl.c	79;"	d	file:
+AHB_RESET_SPI0_SHIFT	sunxi_spi_spl.c	78;"	d	file:
+CCM_AHB_GATING0	sunxi_spi_spl.c	74;"	d	file:
+CCM_SPI0_CLK	sunxi_spi_spl.c	75;"	d	file:
+CMD_BANKADDR_BRRD	sf_internal.h	69;"	d
+CMD_BANKADDR_BRWR	sf_internal.h	68;"	d
+CMD_ERASE_4K	sf_internal.h	42;"	d
+CMD_ERASE_64K	sf_internal.h	44;"	d
+CMD_ERASE_CHIP	sf_internal.h	43;"	d
+CMD_EXTNADDR_RDEAR	sf_internal.h	71;"	d
+CMD_EXTNADDR_WREAR	sf_internal.h	70;"	d
+CMD_FLAG_STATUS	sf_internal.h	64;"	d
+CMD_PAGE_PROGRAM	sf_internal.h	48;"	d
+CMD_QUAD_PAGE_PROGRAM	sf_internal.h	51;"	d
+CMD_READ_ARRAY_FAST	sf_internal.h	55;"	d
+CMD_READ_ARRAY_SLOW	sf_internal.h	54;"	d
+CMD_READ_CONFIG	sf_internal.h	63;"	d
+CMD_READ_DUAL_IO_FAST	sf_internal.h	57;"	d
+CMD_READ_DUAL_OUTPUT_FAST	sf_internal.h	56;"	d
+CMD_READ_ID	sf_internal.h	60;"	d
+CMD_READ_QUAD_IO_FAST	sf_internal.h	59;"	d
+CMD_READ_QUAD_OUTPUT_FAST	sf_internal.h	58;"	d
+CMD_READ_STATUS	sf_internal.h	61;"	d
+CMD_READ_STATUS1	sf_internal.h	62;"	d
+CMD_SST_AAI_WP	sf_internal.h	91;"	d
+CMD_SST_BP	sf_internal.h	90;"	d
+CMD_WRITE_DISABLE	sf_internal.h	49;"	d
+CMD_WRITE_ENABLE	sf_internal.h	50;"	d
+CMD_WRITE_STATUS	sf_internal.h	47;"	d
+CONFIG_CFG_DATA_SECTOR	fsl_espi_spl.c	13;"	d	file:
+ESPI_BOOT_IMAGE_ADDR	fsl_espi_spl.c	12;"	d	file:
+ESPI_BOOT_IMAGE_SIZE	fsl_espi_spl.c	11;"	d	file:
+E_FSR	sf_internal.h	127;"	d
+IDCODE_LEN	sandbox.c	62;"	d	file:
+INFO	spi_flash_ids.c	17;"	d	file:
+INFO6	spi_flash_ids.c	31;"	d	file:
+IS_POW2PS	sf_dataflash.c	455;"	d	file:
+JEDEC_EXT	sf_internal.h	101;"	d
+JEDEC_ID	sf_internal.h	100;"	d
+JEDEC_MFR	sf_internal.h	99;"	d
+OP_COMPARE_BUF1	sf_dataflash.c	54;"	d	file:
+OP_COMPARE_BUF2	sf_dataflash.c	55;"	d	file:
+OP_ERASE_BLOCK	sf_dataflash.c	37;"	d	file:
+OP_ERASE_PAGE	sf_dataflash.c	36;"	d	file:
+OP_MREAD_BUFFER1	sf_dataflash.c	42;"	d	file:
+OP_MREAD_BUFFER2	sf_dataflash.c	43;"	d	file:
+OP_MWERASE_BUFFER1	sf_dataflash.c	44;"	d	file:
+OP_MWERASE_BUFFER2	sf_dataflash.c	45;"	d	file:
+OP_MWRITE_BUFFER1	sf_dataflash.c	46;"	d	file:
+OP_MWRITE_BUFFER2	sf_dataflash.c	47;"	d	file:
+OP_PROGRAM_VIA_BUF1	sf_dataflash.c	50;"	d	file:
+OP_PROGRAM_VIA_BUF2	sf_dataflash.c	51;"	d	file:
+OP_READ_BUFFER1	sf_dataflash.c	30;"	d	file:
+OP_READ_BUFFER2	sf_dataflash.c	31;"	d	file:
+OP_READ_CONTINUOUS	sf_dataflash.c	23;"	d	file:
+OP_READ_ID	sf_dataflash.c	65;"	d	file:
+OP_READ_PAGE	sf_dataflash.c	24;"	d	file:
+OP_READ_SECURITY	sf_dataflash.c	66;"	d	file:
+OP_READ_STATUS	sf_dataflash.c	27;"	d	file:
+OP_REWRITE_VIA_BUF1	sf_dataflash.c	58;"	d	file:
+OP_REWRITE_VIA_BUF2	sf_dataflash.c	59;"	d	file:
+OP_TRANSFER_BUF1	sf_dataflash.c	40;"	d	file:
+OP_TRANSFER_BUF2	sf_dataflash.c	41;"	d	file:
+OP_WRITE_BUFFER1	sf_dataflash.c	32;"	d	file:
+OP_WRITE_BUFFER2	sf_dataflash.c	33;"	d	file:
+OP_WRITE_SECURITY	sf_dataflash.c	68;"	d	file:
+OP_WRITE_SECURITY_REVC	sf_dataflash.c	67;"	d	file:
+RD_DUAL	sf_internal.h	131;"	d
+RD_DUALIO	sf_internal.h	133;"	d
+RD_FULL	sf_internal.h	134;"	d
+RD_QUAD	sf_internal.h	130;"	d
+RD_QUADIO	sf_internal.h	132;"	d
+SECT_4K	sf_internal.h	126;"	d
+SF_ADDR	sandbox.c	/^	SF_ADDR,  \/* processing the offset in the flash to read\/etc... *\/$/;"	e	enum:sandbox_sf_state	file:
+SF_ADDR_LEN	sandbox.c	60;"	d	file:
+SF_CMD	sandbox.c	/^	SF_CMD,   \/* default state -- we're awaiting a command *\/$/;"	e	enum:sandbox_sf_state	file:
+SF_DUAL_PARALLEL_FLASH	sf_internal.h	/^	SF_DUAL_PARALLEL_FLASH	= BIT(1),$/;"	e	enum:spi_dual_flash
+SF_DUAL_STACKED_FLASH	sf_internal.h	/^	SF_DUAL_STACKED_FLASH	= BIT(0),$/;"	e	enum:spi_dual_flash
+SF_ERASE	sandbox.c	/^	SF_ERASE, \/* erase the flash *\/$/;"	e	enum:sandbox_sf_state	file:
+SF_ID	sandbox.c	/^	SF_ID,    \/* read the flash's (jedec) ID code *\/$/;"	e	enum:sandbox_sf_state	file:
+SF_READ	sandbox.c	/^	SF_READ,  \/* reading data from the flash *\/$/;"	e	enum:sandbox_sf_state	file:
+SF_READ_STATUS	sandbox.c	/^	SF_READ_STATUS, \/* read the flash's status register *\/$/;"	e	enum:sandbox_sf_state	file:
+SF_READ_STATUS1	sandbox.c	/^	SF_READ_STATUS1, \/* read the flash's status register upper 8 bits*\/$/;"	e	enum:sandbox_sf_state	file:
+SF_SINGLE_FLASH	sf_internal.h	/^	SF_SINGLE_FLASH	= 0,$/;"	e	enum:spi_dual_flash
+SF_WRITE	sandbox.c	/^	SF_WRITE, \/* writing data to the flash, i.e. page programming *\/$/;"	e	enum:sandbox_sf_state	file:
+SF_WRITE_STATUS	sandbox.c	/^	SF_WRITE_STATUS, \/* write the flash's status register *\/$/;"	e	enum:sandbox_sf_state	file:
+SNOR_F_SST_WR	sf_internal.h	/^	SNOR_F_SST_WR		= BIT(0),$/;"	e	enum:spi_nor_option_flags
+SNOR_F_USE_FSR	sf_internal.h	/^	SNOR_F_USE_FSR		= BIT(1),$/;"	e	enum:spi_nor_option_flags
+SNOR_F_USE_UPAGE	sf_internal.h	/^	SNOR_F_USE_UPAGE	= BIT(3),$/;"	e	enum:spi_nor_option_flags
+SPI0_CLK_DIV_BY_2	sunxi_spi_spl.c	81;"	d	file:
+SPI0_CLK_DIV_BY_4	sunxi_spi_spl.c	82;"	d	file:
+SPI_FLASH_16MB_BOUN	sf_internal.h	31;"	d
+SPI_FLASH_3B_ADDR_LEN	sf_internal.h	29;"	d
+SPI_FLASH_CFI_MFR_ATMEL	sf_internal.h	39;"	d
+SPI_FLASH_CFI_MFR_MACRONIX	sf_internal.h	36;"	d
+SPI_FLASH_CFI_MFR_SPANSION	sf_internal.h	34;"	d
+SPI_FLASH_CFI_MFR_SST	sf_internal.h	37;"	d
+SPI_FLASH_CFI_MFR_STMICRO	sf_internal.h	35;"	d
+SPI_FLASH_CFI_MFR_WINBOND	sf_internal.h	38;"	d
+SPI_FLASH_CMD_LEN	sf_internal.h	30;"	d
+SPI_FLASH_MAX_ID_LEN	sf_internal.h	102;"	d
+SPI_FLASH_PAGE_ERASE_TIMEOUT	sf_internal.h	85;"	d
+SPI_FLASH_PROG_TIMEOUT	sf_internal.h	84;"	d
+SPI_FLASH_SECTOR_ERASE_TIMEOUT	sf_internal.h	86;"	d
+SPI_READ_MAX_SIZE	sunxi_spi_spl.c	185;"	d	file:
+SR_BP0	sf_internal.h	79;"	d
+SR_BP1	sf_internal.h	80;"	d
+SR_BP2	sf_internal.h	81;"	d
+SST_WR	sf_internal.h	128;"	d
+STATUS_PEC	sf_internal.h	78;"	d
+STATUS_QEB_MXIC	sf_internal.h	77;"	d
+STATUS_QEB_WINSPAN	sf_internal.h	76;"	d
+STATUS_WIP	sf_internal.h	75;"	d
+STAT_WEL	sandbox.c	57;"	d	file:
+STAT_WIP	sandbox.c	56;"	d	file:
+SUN4I_CTL_ENABLE	sunxi_spi_spl.c	47;"	d	file:
+SUN4I_CTL_MASTER	sunxi_spi_spl.c	48;"	d	file:
+SUN4I_CTL_RF_RST	sunxi_spi_spl.c	50;"	d	file:
+SUN4I_CTL_TF_RST	sunxi_spi_spl.c	49;"	d	file:
+SUN4I_CTL_XCH	sunxi_spi_spl.c	51;"	d	file:
+SUN4I_SPI0_BC	sunxi_spi_spl.c	44;"	d	file:
+SUN4I_SPI0_CCTL	sunxi_spi_spl.c	39;"	d	file:
+SUN4I_SPI0_CTL	sunxi_spi_spl.c	40;"	d	file:
+SUN4I_SPI0_FIFO_STA	sunxi_spi_spl.c	43;"	d	file:
+SUN4I_SPI0_RX	sunxi_spi_spl.c	41;"	d	file:
+SUN4I_SPI0_TC	sunxi_spi_spl.c	45;"	d	file:
+SUN4I_SPI0_TX	sunxi_spi_spl.c	42;"	d	file:
+SUN6I_BUS_SOFT_RST_REG0	sunxi_spi_spl.c	76;"	d	file:
+SUN6I_CTL_ENABLE	sunxi_spi_spl.c	67;"	d	file:
+SUN6I_CTL_MASTER	sunxi_spi_spl.c	68;"	d	file:
+SUN6I_CTL_SRST	sunxi_spi_spl.c	69;"	d	file:
+SUN6I_SPI0_BCC	sunxi_spi_spl.c	63;"	d	file:
+SUN6I_SPI0_CCTL	sunxi_spi_spl.c	57;"	d	file:
+SUN6I_SPI0_FIFO_STA	sunxi_spi_spl.c	60;"	d	file:
+SUN6I_SPI0_GCR	sunxi_spi_spl.c	58;"	d	file:
+SUN6I_SPI0_MBC	sunxi_spi_spl.c	61;"	d	file:
+SUN6I_SPI0_MTC	sunxi_spi_spl.c	62;"	d	file:
+SUN6I_SPI0_RXD	sunxi_spi_spl.c	65;"	d	file:
+SUN6I_SPI0_TCR	sunxi_spi_spl.c	59;"	d	file:
+SUN6I_SPI0_TXD	sunxi_spi_spl.c	64;"	d	file:
+SUN6I_TCR_XCH	sunxi_spi_spl.c	70;"	d	file:
+SUP_POW2PS	sf_dataflash.c	454;"	d	file:
+WR_QPP	sf_internal.h	129;"	d
+_SF_INTERNAL_H_	sf_internal.h	11;"	d
+add_dataflash	sf_dataflash.c	/^static int add_dataflash(struct udevice *dev, char *name, int nr_pages,$/;"	f	file:
+addr_bytes	sandbox.c	/^	uint addr_bytes, pad_addr_bytes;$/;"	m	struct:sandbox_spi_flash	file:
+bus	sandbox.c	/^	int bus;$/;"	m	struct:sandbox_spi_flash_plat_data	file:
+cmd	sandbox.c	/^	uint cmd;$/;"	m	struct:sandbox_spi_flash	file:
+command	sf_dataflash.c	/^	uint8_t			command[16];$/;"	m	struct:dataflash	file:
+cs	sandbox.c	/^	int cs;$/;"	m	struct:sandbox_spi_flash_plat_data	file:
+cs	sandbox.c	/^	unsigned int cs;	\/* Chip select we are attached to *\/$/;"	m	struct:sandbox_spi_flash	file:
+data	sandbox.c	/^	const struct spi_flash_info *data;$/;"	m	struct:sandbox_spi_flash	typeref:struct:sandbox_spi_flash::spi_flash_info	file:
+dataflash	sf_dataflash.c	/^struct dataflash {$/;"	s	file:
+dataflash_data	sf_dataflash.c	/^static struct flash_info dataflash_data[] = {$/;"	v	typeref:struct:flash_info	file:
+dataflash_status	sf_dataflash.c	/^static inline int dataflash_status(struct spi_slave *spi)$/;"	f	file:
+dataflash_waitready	sf_dataflash.c	/^static int dataflash_waitready(struct spi_slave *spi)$/;"	f	file:
+device_name	sandbox.c	/^	const char *device_name;$/;"	m	struct:sandbox_spi_flash_plat_data	file:
+dm_scan_other	sandbox.c	/^int dm_scan_other(bool pre_reloc_only)$/;"	f
+erase_size	sandbox.c	/^	uint erase_size;$/;"	m	struct:sandbox_spi_flash	file:
+fd	sandbox.c	/^	int fd;$/;"	m	struct:sandbox_spi_flash	file:
+filename	sandbox.c	/^	const char *filename;$/;"	m	struct:sandbox_spi_flash_plat_data	file:
+flags	sf_dataflash.c	/^	uint16_t	flags;$/;"	m	struct:flash_info	file:
+flags	sf_internal.h	/^	u16		flags;$/;"	m	struct:spi_flash_info
+flash_info	sf_dataflash.c	/^struct flash_info {$/;"	s	file:
+fsl_spi_boot	fsl_espi_spl.c	/^void fsl_spi_boot(void)$/;"	f
+fsl_spi_spl_load_image	fsl_espi_spl.c	/^void fsl_spi_spl_load_image(uint32_t offs, unsigned int size, void *vdst)$/;"	f
+id	sf_internal.h	/^	u8		id[SPI_FLASH_MAX_ID_LEN];$/;"	m	struct:spi_flash_info
+id_len	sf_internal.h	/^	u8		id_len;$/;"	m	struct:spi_flash_info
+jedec_id	sf_dataflash.c	/^	uint32_t	jedec_id;$/;"	m	struct:flash_info	file:
+jedec_probe	sf_dataflash.c	/^static struct flash_info *jedec_probe(struct spi_slave *spi)$/;"	f	file:
+macronix_quad_enable	spi_flash.c	/^static int macronix_quad_enable(struct spi_flash *flash)$/;"	f	file:
+n_sectors	sf_internal.h	/^	u32		n_sectors;$/;"	m	struct:spi_flash_info
+name	sf_dataflash.c	/^	char		*name;$/;"	m	struct:flash_info	file:
+name	sf_internal.h	/^	const char	*name;$/;"	m	struct:spi_flash_info
+nr_pages	sf_dataflash.c	/^	unsigned	nr_pages;$/;"	m	struct:flash_info	file:
+off	sandbox.c	/^	uint off;$/;"	m	struct:sandbox_spi_flash	file:
+pad_addr_bytes	sandbox.c	/^	uint addr_bytes, pad_addr_bytes;$/;"	m	struct:sandbox_spi_flash	file:
+page_offset	sf_dataflash.c	/^	unsigned short		page_offset;	\/* offset in flash address *\/$/;"	m	struct:dataflash	file:
+page_size	sf_internal.h	/^	u16		page_size;$/;"	m	struct:spi_flash_info
+pageoffset	sf_dataflash.c	/^	uint16_t	pageoffset;$/;"	m	struct:flash_info	file:
+pagesize	sf_dataflash.c	/^	uint16_t	pagesize;$/;"	m	struct:flash_info	file:
+read_bar	spi_flash.c	/^static int read_bar(struct spi_flash *flash, const struct spi_flash_info *info)$/;"	f	file:
+read_cr	spi_flash.c	/^static int read_cr(struct spi_flash *flash, u8 *rc)$/;"	f	file:
+read_fsr	spi_flash.c	/^static int read_fsr(struct spi_flash *flash, u8 *fsr)$/;"	f	file:
+read_sr	spi_flash.c	/^static int read_sr(struct spi_flash *flash, u8 *rs)$/;"	f	file:
+sandbox_cmdline_cb_spi_sf	sandbox.c	/^static int sandbox_cmdline_cb_spi_sf(struct sandbox_state *state,$/;"	f	file:
+sandbox_erase_part	sandbox.c	/^int sandbox_erase_part(struct sandbox_spi_flash *sbsf, int size)$/;"	f
+sandbox_sf_0xff	sandbox.c	/^static u8 sandbox_sf_0xff[0x1000];$/;"	v	file:
+sandbox_sf_bind_bus_cs	sandbox.c	/^static int sandbox_sf_bind_bus_cs(struct sandbox_state *state, int busnum,$/;"	f	file:
+sandbox_sf_bind_emul	sandbox.c	/^int sandbox_sf_bind_emul(struct sandbox_state *state, int busnum, int cs,$/;"	f
+sandbox_sf_cs_activate	sandbox.c	/^static void sandbox_sf_cs_activate(struct udevice *dev)$/;"	f	file:
+sandbox_sf_cs_deactivate	sandbox.c	/^static void sandbox_sf_cs_deactivate(struct udevice *dev)$/;"	f	file:
+sandbox_sf_emul	sandbox.c	/^U_BOOT_DRIVER(sandbox_sf_emul) = {$/;"	v
+sandbox_sf_emul_ops	sandbox.c	/^static const struct dm_spi_emul_ops sandbox_sf_emul_ops = {$/;"	v	typeref:struct:dm_spi_emul_ops	file:
+sandbox_sf_ids	sandbox.c	/^static const struct udevice_id sandbox_sf_ids[] = {$/;"	v	typeref:struct:udevice_id	file:
+sandbox_sf_ofdata_to_platdata	sandbox.c	/^int sandbox_sf_ofdata_to_platdata(struct udevice *dev)$/;"	f
+sandbox_sf_probe	sandbox.c	/^static int sandbox_sf_probe(struct udevice *dev)$/;"	f	file:
+sandbox_sf_process_cmd	sandbox.c	/^static int sandbox_sf_process_cmd(struct sandbox_spi_flash *sbsf, const u8 *rx,$/;"	f	file:
+sandbox_sf_remove	sandbox.c	/^static int sandbox_sf_remove(struct udevice *dev)$/;"	f	file:
+sandbox_sf_state	sandbox.c	/^enum sandbox_sf_state {$/;"	g	file:
+sandbox_sf_state_name	sandbox.c	/^static const char *sandbox_sf_state_name(enum sandbox_sf_state state)$/;"	f	file:
+sandbox_sf_unbind_emul	sandbox.c	/^void sandbox_sf_unbind_emul(struct sandbox_state *state, int busnum, int cs)$/;"	f
+sandbox_sf_xfer	sandbox.c	/^static int sandbox_sf_xfer(struct udevice *dev, unsigned int bitlen,$/;"	f	file:
+sandbox_spi_flash	sandbox.c	/^struct sandbox_spi_flash {$/;"	s	file:
+sandbox_spi_flash_plat_data	sandbox.c	/^struct sandbox_spi_flash_plat_data {$/;"	s	file:
+sandbox_spi_get_emul	sandbox.c	/^int sandbox_spi_get_emul(struct sandbox_state *state,$/;"	f
+sandbox_spi_tristate	sandbox.c	/^static void sandbox_spi_tristate(u8 *buf, uint len)$/;"	f	file:
+sector_size	sf_internal.h	/^	u32		sector_size;$/;"	m	struct:spi_flash_info
+set_quad_mode	spi_flash.c	/^static int set_quad_mode(struct spi_flash *flash,$/;"	f	file:
+sf_mtd_info	sf_mtd.c	/^static struct mtd_info sf_mtd_info;$/;"	v	typeref:struct:mtd_info	file:
+sf_mtd_name	sf_mtd.c	/^static char sf_mtd_name[8];$/;"	v	file:
+spansion_quad_enable	spi_flash.c	/^static int spansion_quad_enable(struct spi_flash *flash)$/;"	f	file:
+spi0_deinit	sunxi_spi_spl.c	/^static void spi0_deinit(void)$/;"	f	file:
+spi0_disable_clock	sunxi_spi_spl.c	/^static void spi0_disable_clock(void)$/;"	f	file:
+spi0_enable_clock	sunxi_spi_spl.c	/^static void spi0_enable_clock(void)$/;"	f	file:
+spi0_init	sunxi_spi_spl.c	/^static void spi0_init(void)$/;"	f	file:
+spi0_pinmux_setup	sunxi_spi_spl.c	/^static void spi0_pinmux_setup(unsigned int pin_function)$/;"	f	file:
+spi0_read_data	sunxi_spi_spl.c	/^static void spi0_read_data(void *buf, u32 addr, u32 len)$/;"	f	file:
+spi_dataflash	sf_dataflash.c	/^U_BOOT_DRIVER(spi_dataflash) = {$/;"	v
+spi_dataflash_erase	sf_dataflash.c	/^static int spi_dataflash_erase(struct udevice *dev, u32 offset, size_t len)$/;"	f	file:
+spi_dataflash_ids	sf_dataflash.c	/^static const struct udevice_id spi_dataflash_ids[] = {$/;"	v	typeref:struct:udevice_id	file:
+spi_dataflash_ops	sf_dataflash.c	/^static const struct dm_spi_flash_ops spi_dataflash_ops = {$/;"	v	typeref:struct:dm_spi_flash_ops	file:
+spi_dataflash_probe	sf_dataflash.c	/^static int spi_dataflash_probe(struct udevice *dev)$/;"	f	file:
+spi_dataflash_read	sf_dataflash.c	/^static int spi_dataflash_read(struct udevice *dev, u32 offset, size_t len,$/;"	f	file:
+spi_dataflash_write	sf_dataflash.c	/^int spi_dataflash_write(struct udevice *dev, u32 offset, size_t len,$/;"	f
+spi_dual_flash	sf_internal.h	/^enum spi_dual_flash {$/;"	g
+spi_flash	sf-uclass.c	/^UCLASS_DRIVER(spi_flash) = {$/;"	v
+spi_flash_addr	spi_flash.c	/^static void spi_flash_addr(u32 addr, u8 *cmd)$/;"	f	file:
+spi_flash_cmd	sf.c	/^int spi_flash_cmd(struct spi_slave *spi, u8 cmd, void *response, size_t len)$/;"	f
+spi_flash_cmd_erase_ops	spi_flash.c	/^int spi_flash_cmd_erase_ops(struct spi_flash *flash, u32 offset, size_t len)$/;"	f
+spi_flash_cmd_read	sf.c	/^int spi_flash_cmd_read(struct spi_slave *spi, const u8 *cmd,$/;"	f
+spi_flash_cmd_read_ops	spi_flash.c	/^int spi_flash_cmd_read_ops(struct spi_flash *flash, u32 offset,$/;"	f
+spi_flash_cmd_write	sf.c	/^int spi_flash_cmd_write(struct spi_slave *spi, const u8 *cmd, size_t cmd_len,$/;"	f
+spi_flash_cmd_write_disable	sf_internal.h	/^static inline int spi_flash_cmd_write_disable(struct spi_flash *flash)$/;"	f
+spi_flash_cmd_write_enable	sf_internal.h	/^static inline int spi_flash_cmd_write_enable(struct spi_flash *flash)$/;"	f
+spi_flash_cmd_write_ops	spi_flash.c	/^int spi_flash_cmd_write_ops(struct spi_flash *flash, u32 offset,$/;"	f
+spi_flash_copy_mmap	spi_flash.c	/^void __weak spi_flash_copy_mmap(void *data, void *offset, size_t len)$/;"	f
+spi_flash_decode_fdt	spi_flash.c	/^int spi_flash_decode_fdt(const void *blob, struct spi_flash *flash)$/;"	f
+spi_flash_dual	spi_flash.c	/^static void spi_flash_dual(struct spi_flash *flash, u32 *addr)$/;"	f	file:
+spi_flash_erase_dm	sf-uclass.c	/^int spi_flash_erase_dm(struct udevice *dev, u32 offset, size_t len)$/;"	f
+spi_flash_free	sf-uclass.c	/^void spi_flash_free(struct spi_flash *flash)$/;"	f
+spi_flash_free	sf_probe.c	/^void spi_flash_free(struct spi_flash *flash)$/;"	f
+spi_flash_fsr_ready	spi_flash.c	/^static int spi_flash_fsr_ready(struct spi_flash *flash)$/;"	f	file:
+spi_flash_ids	spi_flash_ids.c	/^const struct spi_flash_info spi_flash_ids[] = {$/;"	v	typeref:struct:spi_flash_info
+spi_flash_info	sf_internal.h	/^struct spi_flash_info {$/;"	s
+spi_flash_mtd_erase	sf_mtd.c	/^static int spi_flash_mtd_erase(struct mtd_info *mtd, struct erase_info *instr)$/;"	f	file:
+spi_flash_mtd_number	sf_mtd.c	/^static int spi_flash_mtd_number(void)$/;"	f	file:
+spi_flash_mtd_read	sf_mtd.c	/^static int spi_flash_mtd_read(struct mtd_info *mtd, loff_t from, size_t len,$/;"	f	file:
+spi_flash_mtd_register	sf_mtd.c	/^int spi_flash_mtd_register(struct spi_flash *flash)$/;"	f
+spi_flash_mtd_sync	sf_mtd.c	/^static void spi_flash_mtd_sync(struct mtd_info *mtd)$/;"	f	file:
+spi_flash_mtd_unregister	sf_mtd.c	/^void spi_flash_mtd_unregister(void)$/;"	f
+spi_flash_mtd_write	sf_mtd.c	/^static int spi_flash_mtd_write(struct mtd_info *mtd, loff_t to, size_t len,$/;"	f	file:
+spi_flash_post_bind	sf-uclass.c	/^static int spi_flash_post_bind(struct udevice *dev)$/;"	f	file:
+spi_flash_probe	sf-uclass.c	/^struct spi_flash *spi_flash_probe(unsigned int bus, unsigned int cs,$/;"	f
+spi_flash_probe	sf_probe.c	/^struct spi_flash *spi_flash_probe(unsigned int busnum, unsigned int cs,$/;"	f
+spi_flash_probe_bus_cs	sf-uclass.c	/^int spi_flash_probe_bus_cs(unsigned int busnum, unsigned int cs,$/;"	f
+spi_flash_probe_fdt	sf_probe.c	/^struct spi_flash *spi_flash_probe_fdt(const void *blob, int slave_node,$/;"	f
+spi_flash_probe_slave	sf_probe.c	/^static int spi_flash_probe_slave(struct spi_flash *flash)$/;"	f	file:
+spi_flash_probe_tail	sf_probe.c	/^static struct spi_flash *spi_flash_probe_tail(struct spi_slave *bus)$/;"	f	file:
+spi_flash_read_common	spi_flash.c	/^int spi_flash_read_common(struct spi_flash *flash, const u8 *cmd,$/;"	f
+spi_flash_read_dm	sf-uclass.c	/^int spi_flash_read_dm(struct udevice *dev, u32 offset, size_t len, void *buf)$/;"	f
+spi_flash_read_id	spi_flash.c	/^static const struct spi_flash_info *spi_flash_read_id(struct spi_flash *flash)$/;"	f	file:
+spi_flash_read_write	sf.c	/^static int spi_flash_read_write(struct spi_slave *spi,$/;"	f	file:
+spi_flash_ready	spi_flash.c	/^static int spi_flash_ready(struct spi_flash *flash)$/;"	f	file:
+spi_flash_scan	spi_flash.c	/^int spi_flash_scan(struct spi_flash *flash)$/;"	f
+spi_flash_sr_ready	spi_flash.c	/^static int spi_flash_sr_ready(struct spi_flash *flash)$/;"	f	file:
+spi_flash_std	sf_probe.c	/^U_BOOT_DRIVER(spi_flash_std) = {$/;"	v
+spi_flash_std_erase	sf_probe.c	/^static int spi_flash_std_erase(struct udevice *dev, u32 offset, size_t len)$/;"	f	file:
+spi_flash_std_ids	sf_probe.c	/^static const struct udevice_id spi_flash_std_ids[] = {$/;"	v	typeref:struct:udevice_id	file:
+spi_flash_std_ops	sf_probe.c	/^static const struct dm_spi_flash_ops spi_flash_std_ops = {$/;"	v	typeref:struct:dm_spi_flash_ops	file:
+spi_flash_std_probe	sf_probe.c	/^static int spi_flash_std_probe(struct udevice *dev)$/;"	f	file:
+spi_flash_std_read	sf_probe.c	/^static int spi_flash_std_read(struct udevice *dev, u32 offset, size_t len,$/;"	f	file:
+spi_flash_std_write	sf_probe.c	/^static int spi_flash_std_write(struct udevice *dev, u32 offset, size_t len,$/;"	f	file:
+spi_flash_wait_till_ready	spi_flash.c	/^static int spi_flash_wait_till_ready(struct spi_flash *flash,$/;"	f	file:
+spi_flash_write_common	spi_flash.c	/^int spi_flash_write_common(struct spi_flash *flash, const u8 *cmd,$/;"	f
+spi_flash_write_dm	sf-uclass.c	/^int spi_flash_write_dm(struct udevice *dev, u32 offset, size_t len,$/;"	f
+spi_nor_option_flags	sf_internal.h	/^enum spi_nor_option_flags {$/;"	g
+spl_spi_load_image	sunxi_spi_spl.c	/^static int spl_spi_load_image(struct spl_image_info *spl_image,$/;"	f	file:
+sst_byte_write	spi_flash.c	/^static int sst_byte_write(struct spi_flash *flash, u32 offset, const void *buf)$/;"	f	file:
+sst_write_bp	spi_flash.c	/^int sst_write_bp(struct spi_flash *flash, u32 offset, size_t len,$/;"	f
+sst_write_wp	spi_flash.c	/^int sst_write_wp(struct spi_flash *flash, u32 offset, size_t len,$/;"	f
+state	sandbox.c	/^	enum sandbox_sf_state state;$/;"	m	struct:sandbox_spi_flash	typeref:enum:sandbox_spi_flash::sandbox_sf_state	file:
+status	sandbox.c	/^	u16 status;$/;"	m	struct:sandbox_spi_flash	file:
+stm_get_locked_range	spi_flash.c	/^static void stm_get_locked_range(struct spi_flash *flash, u8 sr, loff_t *ofs,$/;"	f	file:
+stm_is_locked	spi_flash.c	/^int stm_is_locked(struct spi_flash *flash, u32 ofs, size_t len)$/;"	f
+stm_is_locked_sr	spi_flash.c	/^static int stm_is_locked_sr(struct spi_flash *flash, loff_t ofs, u64 len,$/;"	f	file:
+stm_lock	spi_flash.c	/^int stm_lock(struct spi_flash *flash, u32 ofs, size_t len)$/;"	f
+stm_unlock	spi_flash.c	/^int stm_unlock(struct spi_flash *flash, u32 ofs, size_t len)$/;"	f
+sunxi_spi0_read_data	sunxi_spi_spl.c	/^static void sunxi_spi0_read_data(u8 *buf, u32 addr, u32 bufsize,$/;"	f	file:
+write_bar	spi_flash.c	/^static int write_bar(struct spi_flash *flash, u32 offset)$/;"	f	file:
+write_cr	spi_flash.c	/^static int write_cr(struct spi_flash *flash, u8 wc)$/;"	f	file:
+write_sr	spi_flash.c	/^static int write_sr(struct spi_flash *flash, u8 ws)$/;"	f	file:
