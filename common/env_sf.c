@@ -245,9 +245,6 @@ int saveenv(void)
 	int	ret = 1;
 	env_t	env_new;
 
-	//TODO:REMOVE
-	char *tempbuf = NULL;
-
 #ifdef CONFIG_DM_SPI_FLASH
 	struct udevice *new;
 
@@ -297,37 +294,19 @@ int saveenv(void)
 	if (ret)
 		goto done;
 
-	puts("Erasing SPI flash...");
+	puts("Erasing SPI flash...\n");
 
 	ret = spi_flash_erase(env_flash, CONFIG_ENV_OFFSET,
 		sector * CONFIG_ENV_SECT_SIZE);
 	if (ret)
 		goto done;
 
-	puts("Writing to SPI flash...");
+	puts("Writing to SPI flash...\n");
 
 	ret = spi_flash_write(env_flash, CONFIG_ENV_OFFSET,
 		CONFIG_ENV_SIZE, &env_new);
 	if (ret)
 		goto done;
-
-	/* TODO: Remove */
-	tempbuf = malloc(CONFIG_ENV_SIZE);
-	if(!tempbuf)
-		goto done;
-
-	//TODO:REMOVE
-	ret = spi_flash_read(env_flash, CONFIG_ENV_OFFSET,
-			CONFIG_ENV_SIZE, tempbuf);
-	if (ret)
-		goto done;
-
-	/* TODO: Remove  */
-	for (int i = 0; i < 4100; ++i) {
-		if (tempbuf[i + 4] != env_new.data[i]) {
-			printf("Read FLASH DATA MISMATCH\ntempbuf[%d]=0x%X\nenv_new.data[%d]=0x%X\n", i, tempbuf[i], i, env_new.data[i]);
-		}
-	}
 
 	if (CONFIG_ENV_SECT_SIZE > CONFIG_ENV_SIZE) {
 		ret = spi_flash_write(env_flash, saved_offset,
@@ -342,13 +321,11 @@ int saveenv(void)
  done:
 	if (saved_buffer)
 		free(saved_buffer);
-	/*TODO: Remove */
-	if (tempbuf)
-		free(tempbuf);
 
 	return ret;
 }
 
+#if 0
 //TODO: Remove below api's
 static int fill_data_buf(unsigned char *buf, int len)
 {
@@ -537,6 +514,7 @@ static int test_spi_read_api(void)
 }
 
 /* TODO: TILL HERE */
+#endif 
 
 void env_relocate_spec(void)
 {
@@ -547,16 +525,11 @@ void env_relocate_spec(void)
 	//TODO:Remove
 	if (test_spi_flash() < 0)
 		printf("\nSPI FLASH TEST FAILED\n");
-#endif 
 
-#if 0
 	//TODO:Remove
 	if (test_spi_read_api() < 0)
 		printf("SPI FLASH READ API TEST FAILED\n");
 #endif 
-
-	//TODO: Remove print
-	//printf("Second ENV_RELOCATE_SPEC\n");
 
 	buf = (char *)memalign(ARCH_DMA_MINALIGN, CONFIG_ENV_SIZE);
 	env_flash = spi_flash_probe(CONFIG_ENV_SPI_BUS, CONFIG_ENV_SPI_CS,
@@ -568,11 +541,6 @@ void env_relocate_spec(void)
 		return;
 	}
 
-#if 0
-	//TODO: Remove print
-	printf("env_relocate_spec: CONFIG_ENV_OFFSET:0x%X\n CONFIG_ENV_SIZE:0x%X\n", CONFIG_ENV_OFFSET, CONFIG_ENV_SIZE);
-#endif
-
 	ret = spi_flash_read(env_flash,
 		CONFIG_ENV_OFFSET, CONFIG_ENV_SIZE, buf);
 	if (ret) {
@@ -580,18 +548,7 @@ void env_relocate_spec(void)
 		goto out;
 	}
 
-#if 0
-	//TODO: REMOVE
-	printf("buf[%d] = {\n", CONFIG_ENV_SIZE);
-	for(int i = 1; i < 4100 + 1; ++i) {
-		printf("0x%X ", buf[i - 1]);
-		if ((i % 16) == 0) {
-			printf("\n");
-		}
-	}
-#endif 
-
-	ret = env_import(buf, 0);
+	ret = env_import(buf, 1);
 	if (ret)
 		gd->env_valid = 1;
 out:

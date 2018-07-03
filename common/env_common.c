@@ -183,8 +183,6 @@ static int env_aes_cbc_crypt(env_t *env, const int enc)
 #else
 static inline int env_aes_cbc_crypt(env_t *env, const int enc)
 {
-	//TODO:REMOVE
-	printf("Second env_aes_cbc_crypt\n");
 	return 0;
 }
 #endif
@@ -202,19 +200,6 @@ int env_import(const char *buf, int check)
 		uint32_t crc;
 
 		memcpy(&crc, &ep->crc, sizeof(crc));
-
-		//TODO: Remove
-		printf("ENV_SIZE:0x%X\n", ENV_SIZE);
-		printf("Original CRC:0x%X\n", crc);
-		int cal_crc = crc32(0, ep->data, ENV_SIZE);
-		printf("Calcualted CRC:0x%X\n", cal_crc);
-
-		//TODO:Remove
-		for (int i = 0; i < 4100 + 1; ++i) {
-			if (buf[i + 4] != ep->data[i]) {
-				printf("FLASH DATA MISMATCH\nbuf[%d]=0x%X\nep->data[%d]=0x%X\n", i, buf[i], i, ep->data[i]);
-			}
-		}
 
 		if (crc32(0, ep->data, ENV_SIZE) != crc) {
 			set_default_env("!bad CRC");
@@ -251,9 +236,6 @@ int env_export(env_t *env_out)
 	int ret;
 
 	res = (char *)env_out->data;
-
-	//TODO:Remove
-	printf("env_export: ENV_SIZE:0x%X\n", ENV_SIZE);
 
 	len = hexport_r(&env_htab, '\0', 0, &res, ENV_SIZE, 0, NULL);
 	if (len < 0) {

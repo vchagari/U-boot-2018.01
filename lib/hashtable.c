@@ -46,9 +46,6 @@
 #include <search.h>
 #include <slre.h>
 
-//TODO:Remove
-#define DEBUG 1
-
 /*
  * [Aho,Sethi,Ullman] Compilers: Principles, Techniques and Tools, 1986
  * [Knuth]	      The Art of Computer Programming, part 3 (6.4)

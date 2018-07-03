@@ -22,16 +22,6 @@
 
 DECLARE_GLOBAL_DATA_PTR;
 
-/* TODO Remove */
-#define DEBUG 1  
-
-#ifdef DEBUG
-#define debug(fmt,args...)  printf (fmt ,##args)
-#else 
-#define debug(fmt,args...)
-#endif
-/*TIll here */
-
 static void spi_flash_addr(u32 addr, u8 *cmd)
 {
 	/* cmd[0] is actual command */
@@ -282,20 +272,6 @@ int spi_flash_write_common(struct spi_flash *flash, const u8 *cmd,
 		return ret;
 	}
 	
-#if 0	
-	//TODO: Remove
-	u8 *tempbuf = (u8*) buf;
-	printf("spi_flash_write_common:\n");
-	printf("cmd_len:%d buf_len:%d\n", cmd_len, buf_len);
-	for ( int i = 0; i < buf_len; ++i) {
-		if ((i > 0) && ((i % 8) == 0)) {
-			printf("\n");
-		}
-		printf("0x%02X ", tempbuf[i]);
-	}
-	printf("\n");
-#endif 
-
 	ret = spi_flash_cmd_write(spi, cmd, cmd_len, buf, buf_len);
 	if (ret < 0) {
 		debug("SF: write cmd failed\n");
@@ -351,9 +327,6 @@ int spi_flash_cmd_erase_ops(struct spi_flash *flash, u32 offset, size_t len)
 #endif
 		spi_flash_addr(erase_addr, cmd);
 
-		//TODO:Remove
-		printf("spi_flash_erase_cmd_ops: %2x %2x %2x %2x (%x)\n", cmd[0], cmd[1], cmd[2], cmd[3], erase_addr);
-
 		debug("SF: erase %2x %2x %2x %2x (%x)\n", cmd[0], cmd[1],
 		      cmd[2], cmd[3], erase_addr);
 
@@ -390,7 +363,12 @@ int spi_flash_cmd_write_ops(struct spi_flash *flash, u32 offset,
 		}
 	}
 
-	/* TODO: Added: Test remove */
+	/* TODO: Added: Test */
+	/* SPI SUNXI driver doesn't work writing more than 64 bytes 
+	of data to the flash parition.
+	As per the Winbound NOR Flash datasheet, we can write data 
+	less than a page but the LSB of the address offset should be 
+	equal to zero, so hard coding the chunk_len to 32 */
 	chunk_len = 32;
 
 	cmd[0] = flash->write_cmd;
@@ -409,6 +387,7 @@ int spi_flash_cmd_write_ops(struct spi_flash *flash, u32 offset,
 #endif
 	
 		/* TODO: Uncomment */
+		/* Refer to the above comment at Line @367 */
 #if 0	
 		byte_addr = offset % page_size;
 		chunk_len = min(len - actual, (size_t)(page_size - byte_addr));
@@ -419,11 +398,6 @@ int spi_flash_cmd_write_ops(struct spi_flash *flash, u32 offset,
 #endif 
 
 		spi_flash_addr(write_addr, cmd);
-
-		
-		/* TODO:Remove */
-		printf("\nspi_flash_cmd_write_ops\n");
-		printf("SF: 0x%p => cmd = { 0x%02x 0x%02x%02x%02x } chunk_len = %zuactual = %d\n", buf + actual, cmd[0], cmd[1], cmd[2], cmd[3], chunk_len, actual);
 
 		debug("SF: 0x%p => cmd = { 0x%02x 0x%02x%02x%02x }" \
 			"chunk_len = %zu\n", buf + actual, cmd[0], cmd[1],
@@ -532,13 +506,6 @@ int spi_flash_cmd_read_ops(struct spi_flash *flash, u32 offset,
 
 		spi_flash_addr(read_addr, cmd);
 
-		//TODO: Remove
-		printf("\n\nspi_flash_cmd_read_ops\n");
-		printf("SF Read: => cmd = { 0x%02x 0x%02x%02x%02x 0x%02x }\n", cmd[0], cmd[1], cmd[2], cmd[3], cmd[4]);
-
-		//TODO:Remove
-		printf("len:%d\nremain len:%d\ncmd size:%d\nread_len:%d\n",len, remain_len,cmdsz, read_len);
-		
 		ret = spi_flash_read_common(flash, cmd, cmdsz, data, read_len);
 		if (ret < 0) {
 			debug("SF: read failed\n");

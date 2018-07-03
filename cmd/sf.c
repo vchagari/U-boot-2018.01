@@ -94,8 +94,6 @@ static int do_spi_flash_probe(int argc, char * const argv[])
 	struct spi_flash *new;
 #endif
 
-	printf("\n\n\n\n do_spi_flash_probe \n\n");
-
 	if (argc >= 2) {
 		cs = simple_strtoul(argv[1], &endp, 0);
 		if (*argv[1] == 0 || (*endp != 0 && *endp != ':'))

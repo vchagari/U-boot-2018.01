@@ -149,7 +149,10 @@
 /* TODO: Added */
 #define CONFIG_ENV_IS_IN_SPI_FLASH 1
 
-/* #define CONFIG_ENV_IS_IN_FLASH 1 */
+#if 0
+/* Enabling this config causes compile time errors*/
+#define CONFIG_ENV_IS_IN_FLASH 1 
+#endif 
 
 /* 64MB of malloc() pool */
 #define CONFIG_SYS_MALLOC_LEN		(CONFIG_ENV_SIZE + (64 << 20))
@@ -177,22 +180,11 @@
 
 #define CONFIG_SYS_MONITOR_LEN		(768 << 10)	/* 768 KiB */
 
-/* TODO:REMOVE */
-#if 0
-#define CONFIG_ENV_OFFSET		(544 << 10) /* (8 + 24 + 512) KiB */
-#endif 
-
 /* TODO:Added */
 #define CONFIG_ENV_OFFSET		0x7C000
 
-/*TODO:Revert */
-#if 0
-#define CONFIG_ENV_SIZE			(128 << 10)	/* 128 KiB */
-#define CONFIG_ENV_SECT_SIZE    (128 << 10) /* 64 KiB */
-#endif 
-
-#define CONFIG_ENV_SIZE			(128 << 10)	/* 8 KiB */
-#define CONFIG_ENV_SECT_SIZE    (128 << 10) /* 64 KiB */
+#define CONFIG_ENV_SIZE			(128 << 9)	/* 64 KiB */
+#define CONFIG_ENV_SECT_SIZE    (128 << 10) /* 128 KiB */
 
 #define CONFIG_FAT_WRITE	/* enable write access */
 
