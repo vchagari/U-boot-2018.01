@@ -20,6 +20,7 @@
 
 #define SUNXI_SPI_MAX_RATE (24 * 1000 * 1000)
 #define SUNXI_SPI_MIN_RATE (3 * 1000)
+//#define SUNXI_SPI_FIFO_RF_CNT_MASK 0X100
 
 struct sunxi_spi_platdata {
 	struct sunxi_spi_regs *regs;
@@ -245,6 +246,9 @@ static int sunxi_spi_xfer(struct udevice *dev, unsigned int bitlen,
 	size_t i, nbytes;
 	char byte;
 
+	/* TODO: Added for test */
+	size_t actual = 0;
+
 	if (bitlen % 8) {
 		debug("%s: non byte-aligned SPI transfer.\n", __func__);
 		return -1;
@@ -253,12 +257,30 @@ static int sunxi_spi_xfer(struct udevice *dev, unsigned int bitlen,
 	if (flags & SPI_XFER_BEGIN)
 		sunxi_spi_cs_activate(dev, slave_plat->cs);
 
+#if 0
+	//TODO: Remove */
+	printf("sunxi_spi_xfer\n");
+#endif
+
 	while (len) {
+
 		nbytes = min(len, (size_t)64 - 1);
 
+#if 0
+		/*TODO: Edited for testing */
+		//nbytes = len;
+#endif 
+
 		writel(SUNXI_SPI_BURST_CNT(nbytes), &priv->regs->burst_cnt);
-		sunxi_spi_write(dev, tx_buf, nbytes);
+		sunxi_spi_write(dev, tx_buf + actual, nbytes);
 		setbits_le32(&priv->regs->xfer_ctl, SUNXI_SPI_CTL_XCH);
+		
+#if 0
+		/* TODO:remove */
+		printf("readl(&priv->regs->fifo_sta):%d SUNXI_SPI_FIFO_RF_CNT_MASK:%d" \
+		"SUNXI_SPI_FIFO_RF_CNT_BITS:%d nbytes:%d\n", readl(&priv->regs->fifo_sta), \
+		SUNXI_SPI_FIFO_RF_CNT_MASK, SUNXI_SPI_FIFO_RF_CNT_BITS, nbytes);
+#endif 
 
 		while (((readl(&priv->regs->fifo_sta) &
 			SUNXI_SPI_FIFO_RF_CNT_MASK) >>
@@ -272,6 +294,7 @@ static int sunxi_spi_xfer(struct udevice *dev, unsigned int bitlen,
 				*rx_buf++ = byte;
 		}
 
+		actual += nbytes; /*TODO: Added */
 		len -= nbytes;
 	}
 
