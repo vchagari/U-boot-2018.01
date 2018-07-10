@@ -161,8 +161,6 @@ static int env_aes_cbc_crypt(env_t *env, const int enc)
 	uint8_t key_exp[AES_EXPAND_KEY_LENGTH];
 	uint32_t aes_blocks;
 
-	//TODO:REMOVE
-	printf("First env_aes_cbc_crypt\n");
 	key = env_aes_cbc_get_key();
 	if (!key)
 		return -EINVAL;

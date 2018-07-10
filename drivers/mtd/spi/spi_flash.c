@@ -363,14 +363,6 @@ int spi_flash_cmd_write_ops(struct spi_flash *flash, u32 offset,
 		}
 	}
 
-	/* TODO: Added: Test */
-	/* SPI SUNXI driver doesn't work writing more than 64 bytes 
-	of data to the flash parition.
-	As per the Winbound NOR Flash datasheet, we can write data 
-	less than a page but the LSB of the address offset should be 
-	equal to zero, so hard coding the chunk_len to 32 */
-	//chunk_len = 32;
-
 	cmd[0] = flash->write_cmd;
 
 	for (actual = 0; actual < len; actual += chunk_len) {
@@ -386,16 +378,12 @@ int spi_flash_cmd_write_ops(struct spi_flash *flash, u32 offset,
 			return ret;
 #endif
 	
-		/* TODO: Uncomment */
-		/* Refer to the above comment at Line @367 */
-//#if 0	
 		byte_addr = offset % page_size;
 		chunk_len = min(len - actual, (size_t)(page_size - byte_addr));
 
 		if (spi->max_write_size)
 			chunk_len = min(chunk_len,
 					(size_t)spi->max_write_size);
-//#endif 
 
 		spi_flash_addr(write_addr, cmd);
 

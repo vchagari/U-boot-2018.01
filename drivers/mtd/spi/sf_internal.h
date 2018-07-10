@@ -81,9 +81,9 @@ enum spi_nor_option_flags {
 #define SR_BP2				BIT(4)  /* Block protect 2 */
 
 /* Flash timeout values */
-#define SPI_FLASH_PROG_TIMEOUT		(10 * CONFIG_SYS_HZ) /* TODO: Old Value: 2 */ 
-#define SPI_FLASH_PAGE_ERASE_TIMEOUT	(10 * CONFIG_SYS_HZ) /* TODO: old value :5 */
-#define SPI_FLASH_SECTOR_ERASE_TIMEOUT	(20 * CONFIG_SYS_HZ) /* TODO: Old value: 10 */
+#define SPI_FLASH_PROG_TIMEOUT		(2 * CONFIG_SYS_HZ)
+#define SPI_FLASH_PAGE_ERASE_TIMEOUT	(5 * CONFIG_SYS_HZ)
+#define SPI_FLASH_SECTOR_ERASE_TIMEOUT	(10 * CONFIG_SYS_HZ)
 
 /* SST specific */
 #ifdef CONFIG_SPI_FLASH_SST

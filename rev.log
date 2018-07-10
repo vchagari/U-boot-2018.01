@@ -1,0 +1,21 @@
+####################################################
+Added support: 
+sunxi spi flash: Booting from SPI Flash
+Winbond Nor Flash W25Q64JV
+README: Details are mentioned below
+####################################################
+
+1. drivers/mtd/spi/spi_flash_ids.c:	
+	"{"w25q64jv",	   INFO(0xef7017, 0x0,	64 * 1024,   128, RD_FULL | WR_QPP | SECT_4K) }," 
+	Line @162
+
+2. include/configs/sunxi-common.h: 
+	"#define CONFIG_ENV_IS_IN_SPI_FLASH 1".   Line @139	
+	"#define CONFIG_ENV_IS_IN_MMC        0".  Line @145
+	"#define CONFIG_ENV_OFFSET       0x7C000." Line @182
+	"#define CONFIG_ENV_SIZE         (128 << 9)" Line @184
+
+3. drivers/spi/sunxi_spi.c:
+	"size_t buf_offset = 0;" Line @ 247
+	"buf_offset += nbytes;" Line @ 277
+	"sunxi_spi_write(dev, tx_buf + buf_offset, nbytes);" Line @ 262

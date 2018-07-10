@@ -13,6 +13,7 @@
 #include <dm.h>	/* Because we dereference struct udevice here */
 #include <linux/types.h>
 
+/* TODO: Remove */
 #define DEBUG 1
 
 #ifndef CONFIG_SF_DEFAULT_SPEED

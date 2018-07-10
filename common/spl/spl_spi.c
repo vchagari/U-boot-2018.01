@@ -79,9 +79,6 @@ static int spl_spi_load_image(struct spl_image_info *spl_image,
 	 * Load U-Boot image from SPI flash into RAM
 	 */
 
-	//TODO:Remove
-	printf("spl_spi_load_image: Load U-Boot image from SPI flash into RAM\n");
-
 	flash = spi_flash_probe(CONFIG_SF_DEFAULT_BUS,
 				CONFIG_SF_DEFAULT_CS,
 				CONFIG_SF_DEFAULT_SPEED,

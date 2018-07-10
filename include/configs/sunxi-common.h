@@ -136,18 +136,16 @@
 
 #ifdef CONFIG_SPL_SPI_SUNXI
 #define CONFIG_SYS_SPI_U_BOOT_OFFS	0x8000
+#define CONFIG_ENV_IS_IN_SPI_FLASH 1 /* VTODO: Added */
 #endif
 
 /* mmc config */
 #ifdef CONFIG_MMC
 #define CONFIG_MMC_SUNXI_SLOT		0
-#define CONFIG_ENV_IS_IN_MMC        0 /* TODO: Edited from 1 to  0 */
+#define CONFIG_ENV_IS_IN_MMC        0 /* VTODO: Edited from 1 to  0 */
 #define CONFIG_SYS_MMC_ENV_DEV		0	/* first detected MMC controller */
 #define CONFIG_SYS_MMC_MAX_DEVICE	4
 #endif
-
-/* TODO: Added */
-#define CONFIG_ENV_IS_IN_SPI_FLASH 1
 
 #if 0
 /* Enabling this config causes compile time errors*/
@@ -180,10 +178,10 @@
 
 #define CONFIG_SYS_MONITOR_LEN		(768 << 10)	/* 768 KiB */
 
-/* TODO:Added */
-#define CONFIG_ENV_OFFSET		0x7C000
+/* VTODO:Added */
+#define CONFIG_ENV_OFFSET		0x7C000 // Start address of UEnv 
 
-#define CONFIG_ENV_SIZE			(128 << 9)	/* 64 KiB */
+#define CONFIG_ENV_SIZE			(128 << 9)	/* 64 KiB */ /*VTODO: Edited to 64KiB */
 #define CONFIG_ENV_SECT_SIZE    (128 << 10) /* 128 KiB */
 
 #define CONFIG_FAT_WRITE	/* enable write access */
