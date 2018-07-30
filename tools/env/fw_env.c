@@ -1120,7 +1120,7 @@ int fw_env_open(struct env_opts *opts)
 
 	if (parse_config(opts))		/* should fill envdevices */
 		return -1;
-
+	
 	addr0 = calloc(1, CUR_ENVSIZE);
 	if (addr0 == NULL) {
 		fprintf(stderr,
@@ -1145,11 +1145,11 @@ int fw_env_open(struct env_opts *opts)
 	}
 
 	dev_current = 0;
-	if (flash_io (O_RDONLY))
+	if (flash_io (O_RDONLY)) /* Flash read/write operations */
 		return -1;
 
 	crc0 = crc32 (0, (uint8_t *) environment.data, ENV_SIZE);
-
+	
 	if (opts->aes_flag) {
 		ret = env_aes_cbc_crypt(environment.data, 0,
 					opts->aes_key);
@@ -1357,11 +1357,14 @@ static int check_device_config(int dev)
 		/* Assume enough sectors to cover the environment */
 		ENVSECTORS(dev) = DIV_ROUND_UP(ENVSIZE(dev), DEVESIZE(dev));
 
+	/*VTODO: Commented */
+#if 0
 	if (DEVOFFSET(dev) % DEVESIZE(dev) != 0) {
 		fprintf(stderr, "Environment does not start on (erase) block boundary\n");
 		errno = EINVAL;
 		return -1;
 	}
+#endif 
 
 	if (ENVSIZE(dev) > ENVSECTORS(dev) * DEVESIZE(dev)) {
 		fprintf(stderr, "Environment does not fit into available sectors\n");

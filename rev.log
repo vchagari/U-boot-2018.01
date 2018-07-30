@@ -13,9 +13,30 @@ README: Details are mentioned below
 	"#define CONFIG_ENV_IS_IN_SPI_FLASH 1".   Line @139	
 	"#define CONFIG_ENV_IS_IN_MMC        0".  Line @145
 	"#define CONFIG_ENV_OFFSET       0x7C000." Line @182
+	"#define CONFIG_ENV_SECT_SIZE    (128 << 10)" Line @185
 	"#define CONFIG_ENV_SIZE         (128 << 9)" Line @184
 
 3. drivers/spi/sunxi_spi.c:
 	"size_t buf_offset = 0;" Line @ 247
 	"buf_offset += nbytes;" Line @ 277
 	"sunxi_spi_write(dev, tx_buf + buf_offset, nbytes);" Line @ 262
+
+4. include/configs/sunxi-common.h:
+	"bcount=0\0" \    Line @504
+    "dtaddr=0x76000\0" \
+    "dtsize=0x4000\0" \
+    "kimgaddr=0x9F000\0" \
+    "kimgsize=0x59999A\0" \
+    "blimit=5\0" \
+    "korigimgaddr=0x9F000\0" \
+    "korigimgsize=0x59999A\0" \
+    "dtorigaddr=0x76000\0" \
+    "dtorigsize=0x4000\0" \    Line @513
+	
+	After adding the new custom environment variables, cross compile the 
+	u-boot src again and use the new image to boot the board.
+	
+	Stop the booting process by pressing any key on the keyboard, type the f	following commands on the uboot command shell:
+		env default -a
+		saveenv
+	

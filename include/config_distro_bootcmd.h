@@ -382,7 +382,7 @@
 	\
 	"distro_bootcmd=" BOOTENV_SET_SCSI_NEED_INIT                      \
 		"sf probe 0;" \
-		"sf read 0x43100000 0x7B000 0x13F;" \
+		"sf read 0x43100000 0x7B000 0x384;" \
 		"source 0x43100000" \
 		"\0"
 

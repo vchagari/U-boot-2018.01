@@ -178,10 +178,10 @@
 
 #define CONFIG_SYS_MONITOR_LEN		(768 << 10)	/* 768 KiB */
 
-/* VTODO:Added */
-#define CONFIG_ENV_OFFSET		0x7C000 // Start address of UEnv 
+#define CONFIG_ENV_SIZE			(128 << 10)	/* 64 KiB */ /*VTODO: Edited to 64KiB */
 
-#define CONFIG_ENV_SIZE			(128 << 9)	/* 64 KiB */ /*VTODO: Edited to 64KiB */
+/* VTODO: Added  */
+#define CONFIG_ENV_OFFSET		0x7C000 // Start address of UEnv 
 #define CONFIG_ENV_SECT_SIZE    (128 << 10) /* 128 KiB */
 
 #define CONFIG_FAT_WRITE	/* enable write access */
@@ -501,6 +501,16 @@ extern int soft_i2c_gpio_scl;
 	DFU_ALT_INFO_RAM \
 	"fdtfile=" CONFIG_DEFAULT_DEVICE_TREE ".dtb\0" \
 	"console=ttyS0,115200\0" \
+	"bcount=0\0" \
+	"dtaddr=0x76000\0" \
+	"dtsize=0x4000\0" \
+	"kimgaddr=0x9F000\0" \
+	"kimgsize=0x59999A\0" \
+	"blimit=5\0" \
+	"korigimgaddr=0x9F000\0" \
+	"korigimgsize=0x59999A\0" \
+	"dtorigaddr=0x76000\0" \
+	"dtorigsize=0x4000\0" \
 	BOOTCMD_SUNXI_COMPAT \
 	BOOTENV
 
