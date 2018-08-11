@@ -329,7 +329,7 @@ extern unsigned long get_board_sys_clk(unsigned long dummy);
 #if CONFIG_SYS_MONITOR_BASE > 0xfff80000
 #define CONFIG_ENV_ADDR		0xfff80000
 #else
-#define CONFIG_ENV_ADDR		(CONFIG_SYS_MONITOR_BASE + 0x70000)
+//#define CONFIG_ENV_ADDR		(CONFIG_SYS_MONITOR_BASE + 0x70000)
 #endif
 #define CONFIG_ENV_SIZE		0x2000
 #define CONFIG_ENV_SECT_SIZE	0x10000 /* 64K (one sector) */

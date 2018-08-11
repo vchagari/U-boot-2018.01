@@ -69,7 +69,7 @@
 #endif
 
 #define CONFIG_ENV_SIZE			0x10000 /* 64k */
-#define CONFIG_ENV_OFFSET		0x70000 /* env starts here */
+//#define CONFIG_ENV_OFFSET		0x70000 /* env starts here */
 
 /*
  * Default environment variables

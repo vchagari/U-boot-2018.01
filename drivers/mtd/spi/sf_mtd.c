@@ -77,6 +77,9 @@ int spi_flash_mtd_register(struct spi_flash *flash)
 	memset(&sf_mtd_info, 0, sizeof(sf_mtd_info));
 	sprintf(sf_mtd_name, "nor%d", spi_flash_mtd_number());
 
+	//VTODO:REMOVE
+	printf("spi_flash_mtd_register\n");
+
 	sf_mtd_info.name = sf_mtd_name;
 	sf_mtd_info.type = MTD_NORFLASH;
 	sf_mtd_info.flags = MTD_CAP_NORFLASH;

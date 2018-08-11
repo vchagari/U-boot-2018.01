@@ -20,6 +20,9 @@
 
 DECLARE_GLOBAL_DATA_PTR;
 
+//VTODO:Remove
+//#define DEBUG 1
+
 #ifndef CONFIG_SYS_UBOOT_START
 #define CONFIG_SYS_UBOOT_START	CONFIG_SYS_TEXT_BASE
 #endif
@@ -167,6 +170,10 @@ __weak void __noreturn jump_to_image_no_args(struct spl_image_info *spl_image)
 		(image_entry_noargs_t)spl_image->entry_point;
 
 	debug("image entry point: 0x%lX\n", spl_image->entry_point);
+
+	//VTODO;Remove
+	printf("image entry point: 0x%lX\n", spl_image->entry_point);
+
 	image_entry();
 }
 
@@ -263,13 +270,18 @@ static int boot_from_devices(struct spl_image_info *spl_image,
 		loader = spl_ll_find_loader(spl_boot_list[i]);
 #if defined(CONFIG_SPL_SERIAL_SUPPORT) && defined(CONFIG_SPL_LIBCOMMON_SUPPORT)
 		if (loader)
-			printf("Trying to boot from %s\n", loader->name);
+			printf("Test Trying to boot from %s\n", loader->name);
 		else
 			puts("SPL: Unsupported Boot Device!\n");
-#endif
-		if (loader && !spl_load_image(spl_image, loader))
+#endif	
+		if (loader && !spl_load_image(spl_image, loader)) {
+			printf("loader && !spl_load_image");
 			return 0;
+		}
 	}
+
+	//VTODO:remove
+	printf("boot_from_devices; END\n");
 
 	return -ENODEV;
 }
@@ -314,22 +326,30 @@ void board_init_r(gd_t *dummy1, ulong dummy2)
 	if (boot_from_devices(&spl_image, spl_boot_list,
 			      ARRAY_SIZE(spl_boot_list))) {
 		puts("SPL: failed to boot from all boot devices\n");
+		//VTODO:Remove
+		printf("SPL: failed to boot from all boot devices\n");
 		hang();
 	}
 
 	switch (spl_image.os) {
 	case IH_OS_U_BOOT:
 		debug("Jumping to U-Boot\n");
+		//VTODO:Remove
+		printf("Jumping to U-Boot\n");
 		break;
 #ifdef CONFIG_SPL_OS_BOOT
 	case IH_OS_LINUX:
 		debug("Jumping to Linux\n");
+		//VTODO:Remove
+		printf("Jumping to Linux\n");
 		spl_board_prepare_for_linux();
 		jump_to_image_linux(&spl_image,
 				    (void *)CONFIG_SYS_SPL_ARGS_ADDR);
 #endif
 	default:
 		debug("Unsupported OS image.. Jumping nevertheless..\n");
+		//VTODO:Remove
+		printf("Unsupported OS image.. Jumping nevertheless..\n");
 	}
 #if defined(CONFIG_SYS_MALLOC_F_LEN) && !defined(CONFIG_SYS_SPL_MALLOC_SIZE)
 	debug("SPL malloc() used %#lx bytes (%ld KB)\n", gd->malloc_ptr,
@@ -337,8 +357,17 @@ void board_init_r(gd_t *dummy1, ulong dummy2)
 #endif
 
 	debug("loaded - jumping to U-Boot...\n");
+	
+	//VTODDO:Remove
+	printf("loaded - jumping to U-Boot...\n");
+	
 	spl_board_prepare_for_boot();
+	//VTODDO:Remove
+	printf("spl_board_prepare_for_boot\n");
+	
 	jump_to_image_no_args(&spl_image);
+
+	printf("board_init_r: END\n");
 }
 
 /*

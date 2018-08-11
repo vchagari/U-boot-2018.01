@@ -1286,6 +1286,7 @@ static int mtd_proc_show(struct seq_file *m, void *v)
 
 static int mtd_proc_open(struct inode *inode, struct file *file)
 {
+	printf("mtd_proc_open\n\n");
 	return single_open(file, mtd_proc_show, NULL);
 }
 

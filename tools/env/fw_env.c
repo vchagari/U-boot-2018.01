@@ -36,6 +36,9 @@
 
 #include "fw_env.h"
 
+//VTODO: Remove
+#define DEBUG 1
+
 struct env_opts default_opts = {
 #ifdef CONFIG_FILE
 	.config_file = CONFIG_FILE
@@ -821,6 +824,11 @@ static int flash_write_buf(int dev, int fd, void *buf, size_t count)
 							blocklen) * blocklen;
 	}
 
+	//VTODO:Remove
+	printf("flash_write_buf:\nblockstart:0x%llX block_seek:0x%lX blocklen:0x%X\
+		write_total:%d erase_len:%d\n", blockstart, block_seek, blocklen, 
+		write_total, erase_len);
+
 	/*
 	 * Support data anywhere within erase sectors: read out the complete
 	 * area to be erased, replace the environment image, write the whole
@@ -874,6 +882,8 @@ static int flash_write_buf(int dev, int fd, void *buf, size_t count)
 
 	erase.length = erasesize;
 
+	int cctest = 0; 
+
 	/* This only runs once on NOR flash and SPI-dataflash */
 	while (processed < write_total) {
 		rc = flash_bad_block(fd, DEVTYPE(dev), blockstart);
@@ -886,22 +896,50 @@ static int flash_write_buf(int dev, int fd, void *buf, size_t count)
 		}
 
 		if (rc) {		/* block is bad */
+
 			blockstart += blocklen;
 			continue;
 		}
 
+		//VTODO:Remove
+		printf("iteration:%d\n", cctest);
+
 		if (DEVTYPE(dev) != MTD_ABSENT) {
 			erase.start = blockstart;
-			ioctl(fd, MEMUNLOCK, &erase);
+			//VTODO:Testing Remove below 2 lines
+			//erase.start = (__u32) 0x800000;
+			struct mtd_info_user mtdinfo; 
+			rc = ioctl(fd, MEMGETINFO, &mtdinfo);
+			if (rc < 0) {
+				fprintf(stderr, "Cannot get MTD information for %s\n",
+				DEVNAME(dev));
+			}
+			printf("mtd device info\n");
+			printf("Totalsize:0x%X Erasesize:0x%X WriteSize:0x%X oobsize:0x%X\n", 
+				mtdinfo.size, mtdinfo.erasesize, mtdinfo.writesize, mtdinfo.oobsize);
+		
+			/*VTODO: Remove retcheck and printf
+			  Donot remote the ioctl call!.
+			*/
+			
+			int retcheck  = ioctl(fd, MEMUNLOCK, &erase);
+			printf("Ioctl memunlock retcheck:%d\n", retcheck);
+
 			/* These do not need an explicit erase cycle */
-			if (DEVTYPE(dev) != MTD_DATAFLASH)
+			if (DEVTYPE(dev) != MTD_DATAFLASH) {
+				printf("MTD_DATAFLASH\n");	
+				printf("erase.start:0x%X\n", erase.start);
+				printf("erase.length:0x%X\n", erase.length);
+				
 				if (ioctl(fd, MEMERASE, &erase) != 0) {
 					fprintf(stderr,
 						"MTD erase error on %s: %s\n",
 						DEVNAME(dev), strerror(errno));
 					return -1;
 				}
-		}
+				
+			}
+		}		
 
 		if (lseek (fd, blockstart, SEEK_SET) == -1) {
 			fprintf (stderr,
@@ -915,18 +953,25 @@ static int flash_write_buf(int dev, int fd, void *buf, size_t count)
 			(unsigned long long) erasesize,
 			(unsigned long long) blockstart);
 #endif
+
 		if (write (fd, data + processed, erasesize) != erasesize) {
 			fprintf (stderr, "Write error on %s: %s\n",
 				 DEVNAME (dev), strerror (errno));
 			return -1;
 		}
 
-		if (DEVTYPE(dev) != MTD_ABSENT)
-			ioctl(fd, MEMLOCK, &erase);
+		if (DEVTYPE(dev) != MTD_ABSENT) {
+			//VTODO:Remove
+			printf("flash_write_buf: MEMLOCK\n");
+			//ioctl(fd, MEMLOCK, &erase);
+		}
 
 		processed  += erasesize;
 		block_seek = 0;
 		blockstart += erasesize;
+
+		//VTODO
+		++cctest;
 	}
 
 	if (write_total > count)
@@ -943,6 +988,9 @@ static int flash_flag_obsolete (int dev, int fd, off_t offset)
 	int rc;
 	struct erase_info_user erase;
 
+	//VTODO:Remove
+	printf("flash_flag_obsolete\n");
+
 	erase.start  = DEVOFFSET (dev);
 	erase.length = DEVESIZE (dev);
 	/* This relies on the fact, that obsolete_flag == 0 */
@@ -954,7 +1002,8 @@ static int flash_flag_obsolete (int dev, int fd, off_t offset)
 	}
 	ioctl (fd, MEMUNLOCK, &erase);
 	rc = write (fd, &obsolete_flag, sizeof (obsolete_flag));
-	ioctl (fd, MEMLOCK, &erase);
+	//VTODO:Commented to test.
+	//ioctl (fd, MEMLOCK, &erase);
 	if (rc < 0)
 		perror ("Could not set obsolete flag");
 
@@ -1045,6 +1094,7 @@ static int flash_io (int mode)
 
 	/* dev_current: fd_current, erase_current */
 	fd_current = open (DEVNAME (dev_current), mode);
+	printf("DEVNAME():%s\n", DEVNAME(dev_current));
 	if (fd_current < 0) {
 		fprintf (stderr,
 			 "Can't open %s: %s\n",
@@ -1120,7 +1170,14 @@ int fw_env_open(struct env_opts *opts)
 
 	if (parse_config(opts))		/* should fill envdevices */
 		return -1;
-	
+
+	//VTODO:remove
+	int i = 0;
+	printf("fw_env_open:\nenvdevices[(i)].devoff:0x%llX envdevices[(i)].env_size:0x%lX\n\
+		envdevices[(i)].erase_size:0x%lX envdevices[(i)].env_sectors:0x%lX\n", 
+		envdevices[(i)].devoff, envdevices[(i)].env_size, envdevices[(i)].erase_size, 
+		envdevices[(i)].env_sectors);
+
 	addr0 = calloc(1, CUR_ENVSIZE);
 	if (addr0 == NULL) {
 		fprintf(stderr,
@@ -1357,6 +1414,10 @@ static int check_device_config(int dev)
 		/* Assume enough sectors to cover the environment */
 		ENVSECTORS(dev) = DIV_ROUND_UP(ENVSIZE(dev), DEVESIZE(dev));
 
+	//VTODO:remove
+	printf("check_device_config:\nDEVOFFSET:0x%llX ENVSIZE:0x%lX DEVESIZE:0x%lX\n", 
+		DEVOFFSET(dev), ENVSIZE(dev), DEVESIZE(dev));
+
 	/*VTODO: Commented */
 #if 0
 	if (DEVOFFSET(dev) % DEVESIZE(dev) != 0) {
@@ -1470,9 +1531,11 @@ static int get_config (char *fname)
 		rc = sscanf(dump, "%ms %lli %lx %lx %lx",
 			    &devname,
 			    &DEVOFFSET(i),
-			    &ENVSIZE(i),
-			    &DEVESIZE(i),
-			    &ENVSECTORS(i));
+			    &ENVSIZE(i), &DEVESIZE(i), &ENVSECTORS(i));
+
+		//VTODO:remove
+		printf("get_config\nDEVOFFSET:0x%llX ENVSIZE:0x%lX DEVESIZE:0x%lX ENVSECTORS:0x%lX\n ", 
+			DEVOFFSET(i), ENVSIZE(i), DEVESIZE(i), ENVSECTORS(i));
 
 		if (rc < 3)
 			continue;
