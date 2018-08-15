@@ -178,11 +178,10 @@
 
 #define CONFIG_SYS_MONITOR_LEN		(768 << 10)	/* 768 KiB */
 
-#define CONFIG_ENV_SIZE			(128 << 10)	/* 64 KiB */ /*VTODO: Edited to 64KiB */
-
-/* VTODO: Added  */
-#define CONFIG_ENV_OFFSET		0x88000  // 0x7C000 Start address of UEnv 
-#define CONFIG_ENV_SECT_SIZE    (128 << 10) /* 128 KiB */
+/* VTODO: Edited */
+#define CONFIG_ENV_OFFSET		0x80000  //Start address of UEnv 
+#define CONFIG_ENV_SECT_SIZE    (128 << 9) /* 64 KiB */
+#define CONFIG_ENV_SIZE			(128 << 9)	/* 64 KiB */ /*VTODO: Edited to 64KiB */
 
 #define CONFIG_FAT_WRITE	/* enable write access */
 
